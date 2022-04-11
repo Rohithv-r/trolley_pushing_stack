@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="pr2_shoulder_transmission_v0" params="side">
+
+    <!-- <transmission type="pr2_mechanism_model/SimpleTransmission" name="${side}_shoulder_pan_trans">
+      <joint name="${side}_shoulder_pan_joint"/>
+      <actuator name="${side}_shoulder_pan_motor"/>
+      <mechanicalReduction>${13/3 * 250.532/17.19 / cal_r_shoulder_pan_gearing}</mechanicalReduction>
+      <compensator k_belt="4000.0" mass_motor="0.05" kd_motor="15.0" lambda_motor="40.0" lambda_joint="40.0" lambda_combined="0.0"/>
+    </transmission>
+
+    <transmission type="pr2_mechanism_model/SimpleTransmission" name="${side}_shoulder_lift_trans">
+      <joint name="${side}_shoulder_lift_joint"/>
+      <actuator name="${side}_shoulder_lift_motor"/>
+      <mechanicalReduction>${13/3 * 245.532/17.19 / cal_r_shoulder_lift_gearing}</mechanicalReduction>
+      <compensator k_belt="4000.0" mass_motor="0.05" kd_motor="10.0" lambda_motor="60.0" lambda_joint="60.0" lambda_combined="0.0"/>
+    </transmission> -->
+
+    <transmission name="${side}_shoulder_pan_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="${side}_shoulder_pan_joint">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${side}_shoulder_pan_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <transmission name="${side}_shoulder_lift_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="${side}_shoulder_lift_joint">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${side}_shoulder_lift_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+  </xacro:macro>
+
+  <xacro:macro name="pr2_upper_arm_roll_transmission_v0" params="side" >
+    <!-- <transmission type="pr2_mechanism_model/SimpleTransmission" name="${side}_upper_arm_roll_trans">
+      <actuator name="${side}_upper_arm_roll_motor" />
+      <joint name="${side}_upper_arm_roll_joint" />
+      <mechanicalReduction>${13/3 * 129.53/17.19 / cal_r_upper_arm_roll_gearing}</mechanicalReduction>
+    </transmission> -->
+
+    <transmission name="${side}_upper_arm_roll_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="${side}_upper_arm_roll_joint">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${side}_upper_arm_roll_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+  </xacro:macro>
+</robot>

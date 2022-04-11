@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ============================   Upper Arm   ============================ -->
+
+
+  <xacro:macro name="pr2_elbow_flex_transmission_v0" params="side">
+    <!-- <transmission type="pr2_mechanism_model/SimpleTransmission" name="${side}_elbow_flex_trans">
+      <actuator name="${side}_elbow_flex_motor" />
+      <joint name="${side}_elbow_flex_joint" />
+      <mechanicalReduction>${-13/3 * 127.532/15.28}</mechanicalReduction>
+    </transmission> -->
+    <transmission name="${side}_elbow_flex_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="${side}_elbow_flex_joint">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${side}_elbow_flex_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+  </xacro:macro>
+
+  <xacro:macro name="pr2_forearm_roll_transmission_v0" params="side" >
+    <!-- <transmission type="pr2_mechanism_model/SimpleTransmission" name="${side}_forearm_roll_trans">
+      <actuator name="${side}_forearm_roll_motor" />
+      <joint name="${side}_forearm_roll_joint" />
+      <mechanicalReduction>${-576/25 * 55/14}</mechanicalReduction>
+    </transmission> -->
+    <transmission name="${side}_forearm_roll_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="${side}_forearm_roll_joint">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="${side}_forearm_roll_motor">
+        <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+  </xacro:macro>
+  
+</robot>

@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: pr2_description
+    relative_path: robots/pr2_moveit.urdf.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/pr2.srdf
+  CONFIG:
+    author_name: Rohith
+    author_email: vr.rohith01@gmail.com
+    generated_timestamp: 1649054469
