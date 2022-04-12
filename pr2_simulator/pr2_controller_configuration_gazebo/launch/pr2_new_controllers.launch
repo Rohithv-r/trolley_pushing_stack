@@ -16,7 +16,7 @@
   <rosparam command="load" file="$(find pr2_controller_configuration_gazebo)/config/pr2_arm_controllers_new.yaml" />
 
   <!-- Gripper -->
-  <rosparam command="load" file="$(find pr2_controller_configuration_gazebo)/config/pr2_gripper_controllers.yaml" />
+  <rosparam command="load" file="$(find pr2_controller_configuration_gazebo)/config/pr2_gripper_controllers_new.yaml" />
 
   <!-- Tilt Laser -->
   <rosparam command="load" file="$(find pr2_controller_configuration_gazebo)/config/pr2_laser_tilt_controller_new.yaml" />
@@ -27,18 +27,18 @@
   <!-- Controllers that come up started -->
   <node name="default_controllers_spawner"
         pkg="pr2_controller_manager" type="spawner" output="screen"
-        args="--wait-for=/calibrated base_controller base_odometry head_traj_controller torso_controller r_gripper_controller l_gripper_controller" />
+        args="--wait-for=/calibrated base_controller base_odometry head_traj_controller torso_controller" />
 
   <!--Load controllers-->
   <node name="spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" args="--namespace=/ joint_state_controller laser_tilt_controller r_arm_controller l_arm_controller
+    output="screen" args="--namespace=/ joint_state_controller laser_tilt_controller r_arm_controller l_arm_controller r_gripper_controller 
+    l_gripper_controller
     " />
 
   <!-- Nodes on top of the controllers -->
-  <group ns="r_gripper_controller">
+  <!-- <group ns="r_gripper_controller">
     <node name="gripper_action_node"
           pkg="pr2_gripper_action" type="pr2_gripper_action">
-      <!-- needed for stall detection in simulation with joint "jitter" -->
       <param name="stall_velocity_threshold" value="0.33" type="double"/>
       <param name="stall_timeout" value="0.5" type="double"/>
     </node>
@@ -46,11 +46,10 @@
   <group ns="l_gripper_controller">
     <node name="gripper_action_node"
           pkg="pr2_gripper_action" type="pr2_gripper_action">
-      <!-- needed for stall detection in simulation with joint "jitter" -->
       <param name="stall_velocity_threshold" value="0.33" type="double"/>
       <param name="stall_timeout" value="0.5" type="double"/>
     </node>
-  </group>
+  </group> -->
   <group ns="head_traj_controller">
     <node name="point_head_action"
           pkg="pr2_head_action" type="pr2_head_action" />

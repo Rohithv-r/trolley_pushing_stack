@@ -9,7 +9,7 @@
   <xacro:include filename="$(find pr2_description)/urdf/upper_arm_v0/upper_arm_moveit.urdf.xacro" />
   <xacro:include filename="$(find pr2_description)/urdf/forearm_v0/forearm_moveit.urdf.xacro" />
   <!-- PR2 gripper -->
-  <xacro:include filename="$(find pr2_description)/urdf/gripper_v0/gripper.urdf.xacro" />
+  <xacro:include filename="$(find pr2_description)/urdf/gripper_v1/gripper_moveit.urdf.xacro" />
   <!-- PR2 head -->
   <xacro:include filename="$(find pr2_description)/urdf/head_v0/head.urdf.xacro" />
   <!-- PR2 tilting laser mount -->
@@ -78,7 +78,7 @@
     <origin xyz="0 0 0" rpy="0 0 0" />
   </xacro:pr2_forearm_v0>
 
-  <xacro:pr2_gripper_v0 reflect="-1.0" side="r" parent="r_wrist_roll_link"
+  <!-- <xacro:pr2_gripper_v0 reflect="-1.0" side="r" parent="r_wrist_roll_link"
                screw_reduction="${4.0/1000.0}"
                gear_ratio="${(729.0/25.0)*(22.0/16.0)}"
                theta0="${3.6029*M_PI/180.0}"
@@ -90,7 +90,9 @@
                b="${43.3849/1000.0}"
                r="${91.5/1000.0}" >
     <origin xyz="0 0 0" rpy="0 0 0" />
-  </xacro:pr2_gripper_v0>
+  </xacro:pr2_gripper_v0> -->
+
+  <xacro:pr2_gripper_v1 side="r" parent="r_wrist_roll_link" />
 
   <xacro:pr2_shoulder_v0 side="l" reflect="1" parent="torso_lift_link">
     <origin xyz="0.0 0.188 0.0" rpy="0 0 0" />
@@ -100,7 +102,7 @@
     <origin xyz="0 0 0" rpy="0 0 0" />
   </xacro:pr2_forearm_v0>
 
-  <xacro:pr2_gripper_v0 reflect="1.0" side="l" parent="l_wrist_roll_link"
+  <!-- <xacro:pr2_gripper_v0 reflect="1.0" side="l" parent="l_wrist_roll_link"
                screw_reduction="${4.0/1000.0}"
                gear_ratio="${(729.0/25.0)*(22.0/16.0)}"
                theta0="${3.6029*M_PI/180.0}"
@@ -112,7 +114,9 @@
                b="${43.3849/1000.0}"
                r="${91.5/1000.0}" >
     <origin xyz="0 0 0" rpy="0 0 0" />
-  </xacro:pr2_gripper_v0>
+  </xacro:pr2_gripper_v0> -->
+
+  <xacro:pr2_gripper_v1 side="l" parent="l_wrist_roll_link" />
 
   <!-- Forearm cam Position is a guess, based on full robot calibration -->
   <!-- Forearm cam Orientation is from Function -->

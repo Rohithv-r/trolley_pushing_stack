@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="pr2_gripper_gazebo" params="side">
+    <gazebo reference="${side}_gripper_link">
+      <material>Gazebo/DarkGrey</material>
+      <turnGravityOff>true</turnGravityOff>
+      <mu1>0.2</mu1>
+      <mu2>0.2</mu2>
+    </gazebo>
+    <gazebo reference="${side}_left_gripper_finger_link">
+      <material>Gazebo/DarkGrey</material>
+      <turnGravityOff>true</turnGravityOff>
+    </gazebo>
+    <gazebo reference="${side}_right_gripper_finger_link">
+      <material>Gazebo/DarkGrey</material>
+      <turnGravityOff>true</turnGravityOff>
+      <kp>1000000.0</kp>
+      <kd>1.0</kd>
+      <mu1>30.0</mu1>
+      <mu2>30.0</mu2>
+    </gazebo>
+  </xacro:macro>
+
+
+</robot>
