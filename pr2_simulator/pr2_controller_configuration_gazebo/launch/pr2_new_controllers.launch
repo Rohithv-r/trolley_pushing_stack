@@ -10,7 +10,7 @@
   <rosparam file="$(find pr2_controller_configuration_gazebo)/config/pr2_odometry.yaml" command="load" />
 
   <!-- Head -->
-  <rosparam command="load" file="$(find pr2_controller_configuration_gazebo)/config/pr2_head_controller.yaml" />
+  <rosparam command="load" file="$(find pr2_controller_configuration_gazebo)/config/pr2_head_controller_new.yaml" />
   
   <!-- Arms -->
   <rosparam command="load" file="$(find pr2_controller_configuration_gazebo)/config/pr2_arm_controllers_new.yaml" />
@@ -22,17 +22,17 @@
   <rosparam command="load" file="$(find pr2_controller_configuration_gazebo)/config/pr2_laser_tilt_controller_new.yaml" />
 
   <!-- Torso -->
-  <rosparam command="load" file="$(find pr2_controller_configuration_gazebo)/config/pr2_torso_controller.yaml" />
+  <rosparam command="load" file="$(find pr2_controller_configuration_gazebo)/config/pr2_torso_controller_new.yaml" />
 
   <!-- Controllers that come up started -->
   <node name="default_controllers_spawner"
         pkg="pr2_controller_manager" type="spawner" output="screen"
-        args="--wait-for=/calibrated base_controller base_odometry head_traj_controller torso_controller" />
+        args="--wait-for=/calibrated base_controller base_odometry" />
 
   <!--Load controllers-->
   <node name="spawner" pkg="controller_manager" type="spawner" respawn="false"
     output="screen" args="--namespace=/ joint_state_controller laser_tilt_controller r_arm_controller l_arm_controller r_gripper_controller 
-    l_gripper_controller
+    l_gripper_controller head_joint_controller torso_lift_joint_controller
     " />
 
   <!-- Nodes on top of the controllers -->
@@ -50,14 +50,14 @@
       <param name="stall_timeout" value="0.5" type="double"/>
     </node>
   </group> -->
-  <group ns="head_traj_controller">
+  <!-- <group ns="head_traj_controller">
     <node name="point_head_action"
           pkg="pr2_head_action" type="pr2_head_action" />
-  </group>
-  <group ns="torso_controller">
+  </group> -->
+  <!-- <group ns="torso_controller">
     <node name="position_joint_action_node"
           pkg="single_joint_position_action" type="single_joint_position_action" />
-  </group>
+  </group> -->
   
         
 </launch>

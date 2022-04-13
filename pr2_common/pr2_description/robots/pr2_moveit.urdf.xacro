@@ -11,11 +11,11 @@
   <!-- PR2 gripper -->
   <xacro:include filename="$(find pr2_description)/urdf/gripper_v1/gripper_moveit.urdf.xacro" />
   <!-- PR2 head -->
-  <xacro:include filename="$(find pr2_description)/urdf/head_v0/head.urdf.xacro" />
+  <xacro:include filename="$(find pr2_description)/urdf/head_v0/head_moveit.urdf.xacro" />
   <!-- PR2 tilting laser mount -->
   <xacro:include filename="$(find pr2_description)/urdf/tilting_laser_v0/tilting_laser_moveit.urdf.xacro" />
   <!-- PR2 torso -->
-  <xacro:include filename="$(find pr2_description)/urdf/torso_v0/torso.urdf.xacro" />
+  <xacro:include filename="$(find pr2_description)/urdf/torso_v0/torso_moveit.urdf.xacro" />
   <!-- PR2 base -->
   <xacro:include filename="$(find pr2_description)/urdf/base_v0/base.urdf.xacro" />
   <!-- Head sensors -->

@@ -19,7 +19,7 @@
       </sensor>
     </gazebo>
 
-    <gazebo>
+    <!-- <gazebo>
       <joint type="screw" name="${name}_screw_torso_lift_joint">
           <parent>${name}_link</parent>
           <child>${name}_motor_screw_link</child>
@@ -28,7 +28,7 @@
           </axis>
           <thread_pitch>3141.6</thread_pitch>
       </joint>
-    </gazebo>
+    </gazebo> -->
 
   </xacro:macro>
 

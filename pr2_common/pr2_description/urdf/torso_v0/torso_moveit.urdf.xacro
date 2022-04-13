@@ -2,8 +2,8 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:include filename="$(find pr2_description)/urdf/torso_v0/torso.gazebo.xacro" />
-  <!-- <xacro:include filename="$(find pr2_description)/urdf/torso_v0/torso.transmission.xacro" /> -->
-  <!-- <xacro:include filename="$(find pr2_description)/urdf/sensors/microstrain_3dmgx2_imu.urdf.xacro" /> -->
+  <xacro:include filename="$(find pr2_description)/urdf/torso_v0/torso_moveit.transmission.xacro" />
+  <xacro:include filename="$(find pr2_description)/urdf/sensors/microstrain_3dmgx2_imu.urdf.xacro" />
 
   <xacro:macro name="pr2_torso_v0" params="name parent *origin torso_calib_ref:=0.0">
     <joint name="${name}_joint" type="prismatic">
@@ -79,16 +79,14 @@
       </inertial>
     </link>
 
-    
-
     <!-- extensions -->
     <xacro:pr2_torso_gazebo_v0 name="${name}" />
-    <!-- <xacro:pr2_torso_transmission_v0 name="${name}" /> -->
+    <xacro:pr2_torso_transmission_v0 name="${name}" />
 
     <!-- imu -->
-    <!-- <xacro:microstrain_3dmgx2_imu_v0 name="imu" parent="${name}" imu_topic="torso_lift_imu/data" update_rate="100.0" stdev="0.00017" >
+    <xacro:microstrain_3dmgx2_imu_v0 name="imu" parent="${name}" imu_topic="torso_lift_imu/data" update_rate="100.0" stdev="0.00017" >
         <origin xyz="-0.02977 -0.1497 0.164" rpy="0 ${M_PI} 0" />
-    </xacro:microstrain_3dmgx2_imu_v0> -->
+    </xacro:microstrain_3dmgx2_imu_v0>
 
   </xacro:macro>
 

@@ -1,29 +1,30 @@
-r_gripper_controller:
-  type: "effort_controllers/JointTrajectoryController"
-  joints:
-    - r_right_gripper_finger_joint
-    - r_left_gripper_finger_joint
-  gains:
-    r_right_gripper_finger_joint: {p: 100, i: 1, d: 10, i_clamp: 1.0}
-    r_left_gripper_finger_joint: {p: 100, i: 1, d: 10, i_clamp: 1.0}
-  constraints:
-    goal_time: 3.0
-    r_right_gripper_finger_joint:
-      goal: 0.02
-    r_left_gripper_finger_joint:
-      goal: 0.02
+# pr2:
+  r_gripper_controller:
+    type: "effort_controllers/JointTrajectoryController"
+    joints:
+      - r_right_gripper_finger_joint
+      - r_left_gripper_finger_joint
+    gains:
+      r_right_gripper_finger_joint: {p: 100, i: 1, d: 10, i_clamp: 1.0}
+      r_left_gripper_finger_joint: {p: 100, i: 1, d: 10, i_clamp: 1.0}
+    constraints:
+      goal_time: 3.0
+      r_right_gripper_finger_joint:
+        goal: 0.02
+      r_left_gripper_finger_joint:
+        goal: 0.02
 
-l_gripper_controller:
-  type: "effort_controllers/JointTrajectoryController"
-  joints:
-    - l_right_gripper_finger_joint
-    - l_left_gripper_finger_joint
-  gains:
-    l_right_gripper_finger_joint: {p: 100, i: 1, d: 10, i_clamp: 1.0}
-    l_left_gripper_finger_joint: {p: 100, i: 1, d: 10, i_clamp: 1.0}
-  constraints:
-    goal_time: 3.0
-    l_right_gripper_finger_joint:
-      goal: 0.02
-    l_left_gripper_finger_joint:
-      goal: 0.02
+  l_gripper_controller:
+    type: "effort_controllers/JointTrajectoryController"
+    joints:
+      - l_right_gripper_finger_joint
+      - l_left_gripper_finger_joint
+    gains:
+      l_right_gripper_finger_joint: {p: 100, i: 1, d: 10, i_clamp: 1.0}
+      l_left_gripper_finger_joint: {p: 100, i: 1, d: 10, i_clamp: 1.0}
+    constraints:
+      goal_time: 3.0
+      l_right_gripper_finger_joint:
+        goal: 0.02
+      l_left_gripper_finger_joint:
+        goal: 0.02
