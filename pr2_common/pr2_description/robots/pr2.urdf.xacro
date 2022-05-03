@@ -153,6 +153,7 @@
       <!-- Base of Kinect/Prosilica Mount -->
       <xacro:kinect_prosilica_camera_swept_back_v0 name="head_mount" parent="head_plate_frame" >
         <origin xyz="-0.137376 0 0.091746" rpy="0 0 0" />
+        <!-- <origin xyz="-0.137376 0 0.12" rpy="0 0 0" /> -->
         <!--
               Was -0.1 0 0.09225, -0.138 0 0.09225 looks good front back and sheet metal on bolt pattern,
               -0.138 0 0.06225 is where Prosilica FOV just clears the head.

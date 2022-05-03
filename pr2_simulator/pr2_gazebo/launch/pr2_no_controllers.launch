@@ -2,11 +2,19 @@
   <arg name="KINECT1" default="$(optenv KINECT1 false)" />
   <arg name="KINECT2" default="$(optenv KINECT2 false)" />
 
+  <arg name="x" default="0.0" />
+  <arg name="y" default="0.0" />
+  <arg name="z" default="0.0" />
+  <arg name="yaw" default="0.0" />
+
   <!-- send pr2 urdf to param server -->
   <include file="$(find pr2_description)/robots/upload_pr2.launch" pass_all_args="true" />
 
   <!-- push robot_description to factory and spawn robot in gazebo -->
-  <node name="spawn_pr2_model" pkg="gazebo_ros" type="spawn_model" args="$(optenv ROBOT_INITIAL_POSE) -unpause -urdf -param robot_description -model pr2" respawn="false" output="screen" />
+  <node name="spawn_pr2_model" pkg="gazebo_ros" type="spawn_model" args="$(optenv ROBOT_INITIAL_POSE) -unpause -urdf -param robot_description -model pr2 -x $(arg x) -y $(arg y) -z $(arg z) -Y $(arg yaw)
+    -J head_tilt_joint -0.05
+    -J r_shoulder_pan_joint 0.0 -J r_shoulder_lift_joint 0.9 -J r_upper_arm_roll_joint 0.0 -J r_elbow_flex_joint -2.12 -J r_forearm_roll_joint 0.0 -J r_wrist_flex_joint -0.1 -J r_wrist_roll_joint 0.0
+    -J l_shoulder_pan_joint 0.0 -J l_shoulder_lift_joint 0.9 -J l_upper_arm_roll_joint 0.0 -J l_elbow_flex_joint -2.12 -J l_forearm_roll_joint 0.0 -J l_wrist_flex_joint -0.1 -J l_wrist_roll_joint 0.0" respawn="false" output="screen" />
 
   <!-- default bringup script -->
   <include file="$(find pr2_gazebo)/launch/pr2_bringup.launch" />

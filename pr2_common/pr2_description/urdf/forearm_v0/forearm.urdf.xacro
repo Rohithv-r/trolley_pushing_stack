@@ -133,6 +133,13 @@
         </geometry>
       </collision>
     </link>
+    <joint name="${side}_tip_joint" type="fixed">
+      <origin xyz="0.18 0 0" rpy="0 0 0" />
+      <parent link="${side}_wrist_roll_link"/>
+      <child link="${side}_tip_link"/>
+    </joint>
+    <link name="${side}_tip_link"/>
+
     <!-- extensions-->
     <xacro:pr2_forearm_gazebo_v0 side="${side}" />
     <xacro:pr2_forearm_transmission_v0 side="${side}" />

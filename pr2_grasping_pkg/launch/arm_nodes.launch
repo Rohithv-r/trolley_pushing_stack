@@ -1,0 +1,4 @@
+<launch>
+    <node name="right_arm_node1" pkg="pr2_grasping_pkg" type="right_arm_node" output="screen" />
+    <node name="left_arm_node1" pkg="pr2_grasping_pkg" type="left_arm_node" output="screen" />
+</launch>

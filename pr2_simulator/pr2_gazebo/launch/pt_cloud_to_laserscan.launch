@@ -1,0 +1,13 @@
+<launch>
+    <node name="pt_cloud_to_laser_node" type="pointcloud_to_laserscan_node" pkg="pointcloud_to_laserscan">
+        <remap from="cloud_in" to="/head_mount_kinect/depth/points" />
+        <remap from="scan" to="/kinect_scan" />
+        <!-- Parameters -->
+        <param name="min_height" value="0.0"/>
+        <param name="max_height" value="1.6"/>
+        <param name="range_min" value="0.45"/>
+        <param name="range_max" value="6.0"/>
+        <param name="target_frame" value="base_footprint"/>
+        <param name="scan_time" value="0.02" />
+    </node>
+</launch>

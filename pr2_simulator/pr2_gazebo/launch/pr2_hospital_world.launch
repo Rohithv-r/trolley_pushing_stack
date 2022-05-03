@@ -1,0 +1,46 @@
+<launch>
+
+  <!-- start up empty world -->
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false" />
+  <arg name="debug" default="false" />
+  <arg name="paused" default="true"/>
+  <!-- TODO: throttled not implemented in gazebo_ros/empty_world.launch
+  <arg name="throttled" default="false"/>
+  -->
+  <arg name="x" default="1.0" />
+  <arg name="y" default="1.0" />
+  <arg name="z" default="0.0" />
+  <arg name="yaw" default="0.0" />
+  <arg name="world_name" default="$(find aws_robomaker_hospital_world)/worlds/hospital.world"/> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
+
+  <arg name="KINECT1" default="$(optenv KINECT1 true)" />
+  <arg name="KINECT2" default="$(optenv KINECT2 false)" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="headless" value="$(arg headless)" />
+    <arg name="paused" value="$(arg paused)" />
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="use_sim_time" value="true" />
+    <arg name="verbose" value="true" />
+    <!-- TODO: throttled not implemented in gazebo_ros/empty_world.launch
+    <arg name="throttled" value="$(arg throttled)" />
+    -->
+    <arg name="world_name" value="$(arg world_name)"/>
+  </include>
+
+  <!--include file="$(find pr2_gazebo)/launch/pt_cloud_to_laserscan.launch" /-->
+
+  <!-- start pr2 robot -->
+  <include file="$(find pr2_gazebo)/launch/pr2.launch">
+    <arg name="KINECT1" value="$(arg KINECT1)" />
+    <arg name="KINECT2" value="$(arg KINECT2)" />
+    <arg name="x" value="$(arg x)" />
+    <arg name="y" value="$(arg y)" />
+    <arg name="z" value="$(arg z)" />
+    <arg name="yaw" value="$(arg yaw)" />
+  </include>
+
+</launch>
+
