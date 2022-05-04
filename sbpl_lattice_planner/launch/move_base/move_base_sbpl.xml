@@ -8,8 +8,8 @@
     <remap from="scan" to="/base_scan"/>
     <remap from="odom" to="base_odometry/odom" />
     <remap from="cmd_vel" to="base_controller/command" />
-    <!-- <param name="base_global_planner" value="SBPLLatticePlanner" /> -->
-    <param name="base_global_planner" value="navfn/NavfnROS" />
+    <param name="base_global_planner" value="SBPLLatticePlanner" />
+    <!-- <param name="base_global_planner" value="navfn/NavfnROS" /> -->
     <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
     <param name="SBPLLatticePlanner/primitive_filename" value="$(find sbpl_lattice_planner)/matlab/mprim/pr2.mprim" />
     <rosparam file="$(find sbpl_lattice_planner)/launch/move_base/costmap_common_params.yaml" command="load" ns="global_costmap" />
